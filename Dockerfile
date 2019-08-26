@@ -8,11 +8,10 @@ RUN tar xzf FLT7.1v1-linux-x86-release-64.tgz
 RUN rm FLT7.1v1-linux-x86-release-64.tgz
 RUN cd /FLT_7.1v1_linux-x86-release-64RH/ && echo yes | /bin/sh install.sh
 
-# Update Reprise to latest version
-RUN wget http://www.reprisesoftware.com/license_admin_kits/x64_l1.admin.tar.gz
-RUN tar xvf x64_l1.admin.tar.gz
-RUN rm x64_l1.admin.tar.gz
-RUN cp /x64_l1.admin/rlm /usr/local/foundry/LicensingTools7.1/bin/RLM/rlm.foundry
+# Replace rlm.foundry to the cracked one.
+COPY ./rlm.foundry /usr/local/foundry/LicensingTools7.1/bin/RLM/rlm.foundry
+RUN chmod +x /usr/local/foundry/LicensingTools7.1/bin/RLM/rlm.foundry
+
 
 VOLUME /opt/rlm/licenses
 
