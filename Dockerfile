@@ -13,7 +13,7 @@ COPY ./rlm.foundry /usr/local/foundry/LicensingTools7.1/bin/RLM/rlm.foundry
 RUN chmod +x /usr/local/foundry/LicensingTools7.1/bin/RLM/rlm.foundry
 
 
-VOLUME /opt/rlm/licenses
+COPY ./foundry_float.lic /opt/foundry_float.lic
 
 # rlm server
 EXPOSE 5053
