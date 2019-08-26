@@ -33,7 +33,7 @@ IP ADDRESS:
 172.17.0.2
 ```
 
-When inputting the license server to use in Nuke use ```{PORT NUMBER}@{IP ADDRESS}```. If you didn't specify a port number in the license file it'll be ```5053```.
+When inputting the license server to use in a Foundry Product use ```5053@{IP ADDRESS}```.
 
 **Restarting**
 
