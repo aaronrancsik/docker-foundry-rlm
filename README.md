@@ -8,15 +8,26 @@ In order for the container to serve licenses, you need to be able to ping the co
 
 Using Docker Desktop the above setup is not necessary.
 
-**Usage**
+**Install**
 
-The container expects a license file to be named ```foundry_float.lic```. This license file needs to be in the volume you map to ```/opt/rlm/licenses```. Depending on the your license file details you will need to change the mac address and hostname accordingly.
-
-```bash
-docker run --mac-address 08:00:27:ef:70:d3 --hostname licenseserver -v /c/Users/admin/rlm/licenses:/opt/rlm/licenses -i -t tokejepsen/docker-foundry-rlm:latest
+```Bash
+git clone https://github.com/aaronrancsik/docker-foundry-rlm.git
+cd docker-foundry-rlm
+docker build -t rlm-foundry .
 ```
 
-The first line of the output will show the IP address.
+**Usage**
+*Verbose*
+```bash
+docker run --mac-address 08:00:27:ef:70:d3 --hostname licenseserver -i -t rlm-foundry:latest
+```
+*In background*
+```bash
+docker run -d --rm --mac-address 08:00:27:ef:70:d3 --hostname licenseserver -i -t rlm-foundry:latest
+```
+
+
+In verbose the first line of the output will show the IP address. Ex.:
 ```
 IP ADDRESS:
 172.17.0.2
@@ -26,8 +37,8 @@ When inputting the license server to use in Nuke use ```{PORT NUMBER}@{IP ADDRES
 
 **Restarting**
 
-Restarting the container works because the license file is temporarily store in the container until its deleted. This means you can have the license server always running even between reboots of the host machine by adding the ```--restart=always```.
+ You can have the license server always running even between reboots of the host machine by adding the ```--restart=always```.
 
 ```bash
-docker run --restart=always --mac-address 08:00:27:ef:70:d3 --hostname licenseserver -v /c/Users/admin/rlm/licenses:/opt/rlm/licenses -i -t tokejepsen/docker-foundry-rlm:latest
+docker run --restart=always -d --rm --mac-address 08:00:27:ef:70:d3 --hostname licenseserver -i -t rlm-foundry:latest
 ```
