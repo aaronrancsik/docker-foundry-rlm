@@ -33,7 +33,7 @@ IP ADDRESS:
 172.17.0.2
 ```
 
-When inputting the license server to use in a Foundry Product use ```5053@{IP ADDRESS}```.
+When inputting the license server to use in a Foundry product use ```5053@{IP ADDRESS}```.
 
 **Restarting**
 
